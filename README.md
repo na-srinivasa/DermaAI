@@ -103,7 +103,7 @@ The complete machine-learning development and experimentation process is documen
 
 ---
 
-# 🖥️ Application Preview
+# 🖼️ Application Preview
 
 ## Home
 
@@ -120,6 +120,28 @@ The complete machine-learning development and experimentation process is documen
 ## System Profile
 
 ![DermaAI System Profile](assets/04-system-profile.png)
+
+---
+
+# 🩺 Supported Skin-Lesion Examples
+
+The following reference image illustrates the **seven lesion categories represented by the HAM10000 classification task** used by DermaAI.
+
+![Seven Skin-Lesion Categories](assets/lesion-examples.png)
+
+### Supported Categories
+
+| No. | Category | HAM10000 Code |
+|---:|---|---|
+| 1 | Actinic Keratoses | `akiec` |
+| 2 | Basal Cell Carcinoma | `bcc` |
+| 3 | Benign Keratosis-like Lesions | `bkl` |
+| 4 | Dermatofibroma | `df` |
+| 5 | Melanoma | `mel` |
+| 6 | Melanocytic Nevi | `nv` |
+| 7 | Vascular Lesions | `vasc` |
+
+> **Important:** These images are provided for educational/reference purposes only. Visual appearance alone cannot establish a medical diagnosis.
 
 ---
 
@@ -459,7 +481,8 @@ DermaAI/
     ├── 01-home.png
     ├── 02-analyzer.png
     ├── 03-results.png
-    └── 04-system-profile.png
+    ├── 04-system-profile.png
+    └── lesion-examples.png
 ```
 
 ---
