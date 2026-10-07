@@ -1,0 +1,9 @@
+streamlit
+fastapi
+uvicorn[standard]
+python-multipart
+tensorflow==2.22.0rc0
+numpy
+Pillow
+python-dotenv
+google-genai

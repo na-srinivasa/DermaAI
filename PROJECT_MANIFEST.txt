@@ -1,0 +1,3 @@
+DermaAI Complete Package
+Includes React/Vite UI, FastAPI backend, Streamlit entrypoint, and uploaded training notebook.
+Model binary was not included because it was not among the uploaded files.
