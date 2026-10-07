@@ -1,10 +1,10 @@
 # 🔬 DermaAI — AI-Powered Skin Lesion Classification & Educational Assistant
 
-> **AI for Healthcare | Deep Learning + Generative AI**
+> **AI for Healthcare | Computer Vision + Deep Learning + Generative AI**
 
-**DermaAI** is an AI-powered skin-lesion classification and educational assistance platform that combines **Computer Vision, Deep Learning, Transfer Learning, and Generative AI** in a single interactive application.
+**DermaAI** is an AI-powered skin-lesion classification and educational assistance platform that combines **Computer Vision, Deep Learning, Transfer Learning, and Generative AI** in a single web application.
 
-The system uses an **EfficientNetB3-based transfer-learning model** trained on the **HAM10000 dermoscopic image dataset** to classify suitable dermoscopic skin-lesion images into seven categories. The predicted class and confidence score are then used as context for **Google Gemini**, which generates understandable educational information and supports multilingual interaction.
+The system uses an **EfficientNetB3-based transfer-learning model** trained on the **HAM10000 dermoscopic image dataset** to classify suitable dermoscopic skin-lesion images into seven categories. The predicted category and confidence score are then provided as context to **Google Gemini**, which generates understandable educational information and supports multilingual interaction.
 
 > ⚠️ **Medical safety:** DermaAI is an educational/research prototype. It is **not a medical diagnostic system** and must not be used as a substitute for professional medical advice, diagnosis, or treatment.
 
@@ -36,7 +36,7 @@ The system uses the **HAM10000** dermoscopic image dataset and an **EfficientNet
 
 Uploaded images are preprocessed and analyzed by the trained deep-learning model to provide the most likely category and confidence score. The prediction is then passed to **Google Gemini** to generate understandable educational information about the predicted lesion and the importance of professional medical evaluation.
 
-The application combines **image upload, AI classification, confidence analysis, Generative AI assistance, and multilingual interaction** in one interface.
+The application combines **image upload, AI classification, confidence analysis, Generative AI assistance, and multilingual interaction** in one web interface.
 
 For reliable results, users should provide clear dermoscopic skin-lesion images similar to the training data. Blurry, unrelated, or out-of-distribution images may produce unreliable predictions.
 
@@ -44,11 +44,9 @@ The system is intended for **educational and early-awareness purposes** and does
 
 ---
 
-## ✨ Why DermaAI?
+# ✨ Why DermaAI?
 
-Most image-classification systems stop after producing a class label.
-
-DermaAI adds an educational layer:
+A conventional image-classification workflow ends with a class label. DermaAI extends that workflow with an educational Generative AI layer.
 
 ```text
 Dermoscopic Image
@@ -70,13 +68,13 @@ Multilingual Interaction
 
 ### Core idea
 
-**Deep Learning for Classification.  
-Generative AI for Understanding.  
-AI for Healthcare.**
+**Deep Learning for Classification.**  
+**Generative AI for Understanding.**  
+**AI for Healthcare.**
 
 ---
 
-## 🚀 Key Features
+# 🚀 Key Features
 
 - 🧠 EfficientNetB3-based skin-lesion classification
 - 🔬 Seven-class classification using HAM10000
@@ -85,30 +83,27 @@ AI for Healthcare.**
 - 🤖 Google Gemini educational assistant
 - 🌐 English, Kannada, and Hindi interaction
 - 💬 Follow-up educational questions
-- 🖥️ Interactive Streamlit dashboard
-- 🔐 API-key protection through environment variables / secrets
-- ⚠️ Built-in medical safety disclaimer
-- 📓 Training notebook included in the project
+- ⚛️ React + Vite web interface
+- ⚡ FastAPI backend
+- 🔐 API-key protection through environment variables / deployment secrets
+- ⚠️ Built-in medical safety messaging
+- 📓 Training notebook included
 
 ---
 
 # 🖥️ Application Preview
 
-## 1. DermaAI Home / Landing Page
+## 1. DermaAI Home
 
 ![DermaAI Home](assets/01-home.png)
 
-The landing page introduces the platform and clearly communicates that the system is designed for **educational, non-diagnostic exploration**.
-
----
+The landing page introduces DermaAI and communicates its educational, non-diagnostic purpose.
 
 ## 2. Image Analyzer
 
 ![DermaAI Analyzer](assets/02-analyzer.png)
 
-Users can upload a suitable dermoscopic image and start the analysis pipeline.
-
-The interface displays the major stages:
+Users can upload a suitable dermoscopic image and start the AI analysis workflow.
 
 ```text
 Image Intake
@@ -120,39 +115,29 @@ Confidence Profile
 Educational Layer
 ```
 
----
-
 ## 3. AI Analysis Results
 
 ![DermaAI Results](assets/03-results.png)
 
-The results interface presents:
+The analysis interface presents the predicted category, confidence information, probability distribution, educational context, and clinical-awareness guidance.
 
-- AI-predicted category
-- Model confidence
-- Probability distribution
-- Educational context
-- Clinical-awareness guidance
-
-A low-confidence result is explicitly surfaced instead of presenting the model output as medical certainty.
-
----
+A confidence value represents the model's prediction probability; it should not be interpreted as medical certainty.
 
 ## 4. System Profile
 
 ![DermaAI System Profile](assets/04-system-profile.png)
 
-The system profile communicates the model, dataset, supported languages, and API/privacy architecture.
+The system profile presents information about the model, dataset, supported languages, and application architecture.
 
 ---
 
 # 🖼️ Raw Dermoscopic Image Reference
 
-The following image is included as a **raw visual reference** showing examples of lesion categories used for classification context.
+The following raw image is included as a visual reference for the lesion categories represented in the project.
 
 ![Raw Skin Lesion Samples](assets/raw-lesion-samples.png)
 
-> **Note:** The raw image is included for project documentation and visual reference. It should not be interpreted as a diagnostic chart.
+> **Note:** This image is included for project documentation and visual reference. It should not be interpreted as a diagnostic chart.
 
 ---
 
@@ -160,7 +145,7 @@ The following image is included as a **raw visual reference** showing examples o
 
 DermaAI uses the **HAM10000 (Human Against Machine with 10000 training images)** dermoscopic dataset.
 
-The dataset contains **10,015 images** across seven diagnostic categories and is notably class-imbalanced.
+The dataset contains **10,015 images** across seven categories and has a substantial class imbalance.
 
 | Code | Category | Images |
 |---|---|---:|
@@ -175,7 +160,7 @@ The dataset contains **10,015 images** across seven diagnostic categories and is
 
 ### Why class imbalance matters
 
-The number of samples differs substantially between classes. This makes **class distribution, balancing strategy, validation, and per-class evaluation** important when developing the classifier.
+The number of samples differs substantially between classes. Therefore, class distribution, balancing strategy, validation, and per-class evaluation are important when developing and evaluating the classifier.
 
 ---
 
@@ -183,7 +168,7 @@ The number of samples differs substantially between classes. This makes **class 
 
 ## EfficientNetB3
 
-The primary classification model is **EfficientNetB3** using transfer learning and fine-tuning.
+The primary image-classification architecture is **EfficientNetB3**, using transfer learning followed by fine-tuning.
 
 ### Model pipeline
 
@@ -207,13 +192,13 @@ Predicted Class
 Confidence Score
 ```
 
-The trained model is stored as:
+The trained model is stored at:
 
 ```text
-best_skin_model_phase2.keras
+model/best_skin_model_phase2.keras
 ```
 
-> **Important:** EfficientNetB3 is the model architecture used by DermaAI. It should not be confused with “EfficientNet V3.”
+> **Important:** DermaAI uses **EfficientNetB3**. It should not be described as “EfficientNet V3.”
 
 ---
 
@@ -237,7 +222,7 @@ Model-Compatible Preprocessing
 EfficientNetB3
 ```
 
-The classifier performs best when the uploaded image is visually similar to the training distribution.
+The classifier is intended for dermoscopic images that are reasonably similar to its training distribution.
 
 ### Recommended input
 
@@ -252,7 +237,7 @@ The classifier performs best when the uploaded image is visually similar to the 
 
 - Blurry images
 - Very dark or overexposed images
-- Heavy obstruction
+- Heavily obstructed images
 - Unrelated photographs
 - Images significantly different from the training distribution
 
@@ -272,7 +257,7 @@ Vascular Lesions               142
 Dermatofibroma                 115
 ```
 
-This distribution is important when interpreting overall accuracy because a model can perform well on majority classes while performing poorly on minority classes.
+This distribution should be considered when interpreting overall performance because strong performance on majority classes can hide weaker performance on minority classes.
 
 ---
 
@@ -304,15 +289,13 @@ Best Model Selection
 Saved .keras Model
 ```
 
-The training notebook is included so reviewers can inspect the machine-learning workflow.
+The training notebook included in the repository allows reviewers to inspect the training and evaluation workflow.
 
 ---
 
 # 📊 Model Evaluation
 
-Model evaluation should consider more than accuracy.
-
-Recommended evaluation metrics include:
+Relevant evaluation metrics include:
 
 - Accuracy
 - Precision
@@ -321,28 +304,32 @@ Recommended evaluation metrics include:
 - Confusion matrix
 - Per-class performance
 
-The confusion matrix is particularly useful for identifying classes that the model frequently confuses.
+The confusion matrix is especially useful for identifying classes that are frequently confused.
 
-> **Transparency:** Actual evaluation values should be taken directly from the training notebook. This README does not invent or estimate model performance numbers.
+> **Transparency:** This README does not invent or estimate performance numbers. Actual evaluation values should be taken directly from the training notebook.
 
 ---
 
 # 🤖 Generative AI — Google Gemini
 
-Google Gemini acts as the **educational assistant layer**, not the primary image classifier.
+Google Gemini is used as the **educational assistant layer**, not as the primary image classifier.
 
-### Important distinction
+### AI responsibility split
 
 ```text
+Uploaded Image
+      ↓
 EfficientNetB3
-     ↓
+      ↓
 Primary Image Classification
-     ↓
+      ↓
 Prediction + Confidence
-     ↓
+      ↓
 Google Gemini
-     ↓
+      ↓
 Educational Explanation
+      ↓
+Multilingual / Follow-up Interaction
 ```
 
 Gemini can provide:
@@ -353,7 +340,7 @@ Gemini can provide:
 - Multilingual responses
 - Answers to follow-up educational questions
 
-This separation keeps the responsibilities of the two AI components clear.
+The separation keeps image classification and educational generation as distinct components.
 
 ---
 
@@ -369,7 +356,7 @@ The multilingual layer is intended to make educational information more accessib
 
 ---
 
-# 🔄 Complete System Architecture
+# 🔄 System Architecture
 
 ```text
                          ┌─────────────────────┐
@@ -393,19 +380,23 @@ The multilingual layer is intended to make educational information more accessib
                          └──────────┬──────────┘
                                     ↓
                          ┌─────────────────────┐
+                         │    FastAPI Backend   │
+                         └──────────┬──────────┘
+                                    ↓
+                         ┌─────────────────────┐
                          │    Google Gemini    │
-                         │ Educational Layer  │
+                         │ Educational Layer   │
+                         └──────────┬──────────┘
+                                    ↓
+                         ┌─────────────────────┐
+                         │ React + Vite UI     │
                          └──────────┬──────────┘
                                     ↓
               ┌─────────────────────┼─────────────────────┐
               ↓                     ↓                     ↓
           English                Kannada                Hindi
-              └─────────────────────┼─────────────────────┘
                                     ↓
-                         ┌─────────────────────┐
-                         │ Follow-up Q&A /     │
-                         │ Educational Context │
-                         └─────────────────────┘
+                         Follow-up Educational Q&A
 ```
 
 ---
@@ -414,49 +405,92 @@ The multilingual layer is intended to make educational information more accessib
 
 | Layer | Technology |
 |---|---|
-| Programming | Python |
+| Programming | Python, TypeScript |
 | Deep Learning | TensorFlow / Keras |
 | Model | EfficientNetB3 |
 | Learning | Transfer Learning + Fine-Tuning |
 | Dataset | HAM10000 |
 | Image Processing | Pillow, NumPy |
+| Backend API | FastAPI |
+| ASGI Server | Uvicorn |
+| Frontend | React |
+| Frontend Tooling | Vite |
 | Generative AI | Google Gemini API |
-| Web Application | Streamlit |
-| Environment | python-dotenv |
+| Environment | python-dotenv / environment secrets |
 | Model Format | `.keras` |
 | Version Control | Git / GitHub |
-| Deployment | Streamlit Community Cloud |
 
 ---
 
 # 📁 Project Structure
 
 ```text
-skin-disease/
+DermaAI/
 │
-├── app.py
-├── best_skin_model_phase2.keras
-├── requirements.txt
+├── AI_Skin_Disease_Consultant.ipynb
+├── PROJECT_MANIFEST.txt
 ├── README.md
-├── .gitignore
+├── app.py
+├── requirements.txt
 │
-└── notebooks/
-    └── skin_lesion_training.ipynb
+├── model/
+│   └── best_skin_model_phase2.keras
+│
+├── backend/
+│   ├── __init__.py
+│   ├── gemini_service.py
+│   ├── main.py
+│   ├── model_service.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── .env.example
+│   ├── README.md
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src/
+│   │   ├── App.tsx
+│   │   ├── api.ts
+│   │   ├── main.tsx
+│   │   ├── styles.css
+│   │   └── types.ts
+│   ├── tsconfig.json
+│   └── vite.config.ts
+│
+├── docs/
+│   └── PROJECT_NOTES.md
+│
+└── scripts/
+    ├── run_backend.sh
+    └── run_frontend.sh
 ```
 
 ### Important files
 
-**`app.py`**  
-Main Streamlit application containing the user interface, model loading, image prediction, and Gemini integration.
+**`frontend/src/App.tsx`**  
+Main React interface.
 
-**`best_skin_model_phase2.keras`**  
+**`frontend/src/api.ts`**  
+Frontend API communication layer.
+
+**`backend/main.py`**  
+FastAPI backend entry point and API routes.
+
+**`backend/model_service.py`**  
+Model loading and inference service.
+
+**`backend/gemini_service.py`**  
+Gemini educational-assistance integration.
+
+**`model/best_skin_model_phase2.keras`**  
 Trained EfficientNetB3-based classification model.
 
-**`notebooks/skin_lesion_training.ipynb`**  
-Training and evaluation workflow.
+**`AI_Skin_Disease_Consultant.ipynb`**  
+Training and model-development notebook.
 
 **`requirements.txt`**  
-Python dependencies required to run the application.
+Root-level Python dependencies.
 
 ---
 
@@ -465,86 +499,144 @@ Python dependencies required to run the application.
 ## 1. Clone the repository
 
 ```bash
-git clone https://github.com/Pavankm70/skin-disease.git
-cd skin-disease
+git clone https://github.com/na-srinivasa/DermaAI.git
+cd DermaAI
 ```
 
-## 2. Create a virtual environment
+## 2. Backend setup
+
+Create and activate a Python virtual environment:
 
 ### macOS / Linux
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### Windows
 
 ```bash
-python -m venv venv
-venv\Scripts\activate
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
-## 3. Install dependencies
+Install the backend dependencies:
+
+```bash
+pip install -r backend/requirements.txt
+```
+
+If the root `requirements.txt` is the intended environment file for the complete application, use:
 
 ```bash
 pip install -r requirements.txt
+```
+
+## 3. Frontend setup
+
+Open a second terminal:
+
+```bash
+cd frontend
+npm install
 ```
 
 ---
 
 # 🔐 Environment Variables
 
-Create a `.env` file in the project root:
+Do **not** commit API keys.
+
+Configure the Gemini API key using the environment configuration expected by the backend.
+
+Example:
 
 ```env
 GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
-Never commit the real API key to GitHub.
+The repository includes example environment files so that secret values can be configured locally without committing them.
 
-Recommended `.gitignore` entries:
-
-```text
-.env
-.streamlit/secrets.toml
-venv/
-__pycache__/
-```
+> Never place a real API key directly in source code or commit it to GitHub.
 
 ---
 
 # ▶️ Run DermaAI Locally
 
-Start the Streamlit application:
+DermaAI uses a **FastAPI backend** and a **React + Vite frontend**.
+
+## Start the backend
+
+From the project root:
 
 ```bash
-streamlit run app.py
+uvicorn backend.main:app --reload
 ```
 
-Then open the local URL displayed by Streamlit.
+## Start the frontend
+
+In another terminal:
+
+```bash
+cd frontend
+npm run dev
+```
+
+The Vite terminal will display the local frontend URL.
+
+### Using the provided scripts
+
+The repository also contains:
+
+```text
+scripts/run_backend.sh
+scripts/run_frontend.sh
+```
+
+These can be used according to their implementation to simplify local startup.
+
+---
+
+# 🔗 Application API
+
+The backend exposes API functionality for:
+
+```text
+Health Check
+     ↓
+Image Upload
+     ↓
+Model Inference
+     ↓
+Prediction + Confidence
+     ↓
+Educational AI Assistance
+```
+
+The exact API routes and schemas are implemented in:
+
+```text
+backend/main.py
+```
 
 ---
 
 # ☁️ Deployment
 
-DermaAI can be deployed using **Streamlit Community Cloud**.
+The final deployment should use infrastructure compatible with the **React frontend + FastAPI backend + TensorFlow model + Gemini API** architecture.
 
-Required components include:
+A production deployment should provide:
 
-- GitHub repository
-- `app.py`
-- `requirements.txt`
-- Trained `.keras` model
-- Gemini API key configured securely through Streamlit Secrets
+- React frontend hosting
+- FastAPI backend hosting
+- Secure environment variables
+- Access to the trained `.keras` model
+- HTTPS
+- Appropriate CORS configuration
+- Secure Gemini API credentials
 
-Example:
-
-```toml
-GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
-```
-
-The secret should never be hard-coded into source files.
+> Do not describe this project as a Streamlit deployment. The current application architecture is **React + Vite + FastAPI**.
 
 ---
 
@@ -555,11 +647,12 @@ DermaAI is designed as an educational prototype.
 Security considerations include:
 
 - API credentials stored outside source code
-- Environment variables / Streamlit Secrets for Gemini credentials
+- Environment variables for Gemini credentials
 - No API key exposed in the frontend
-- Clear non-diagnostic messaging
+- Medical safety messaging
+- Separation of frontend and backend responsibilities
 
-Production healthcare deployment would require significantly stronger privacy, security, consent, audit, and regulatory controls.
+Production healthcare deployment would require stronger privacy, authentication, encryption, consent, audit controls, secure data retention policies, and applicable regulatory compliance.
 
 ---
 
@@ -571,23 +664,23 @@ The model learns from HAM10000 and may perform differently on images outside its
 
 ### Class Imbalance
 
-Some categories contain far fewer samples than others.
+The dataset contains substantially different numbers of samples across classes.
 
 ### Image Quality
 
-Poor-quality images can reduce prediction reliability.
+Poor-quality, blurry, dark, overexposed, or obstructed images may reduce prediction reliability.
 
 ### Visual Similarity
 
-Different lesion categories may share visual characteristics, leading to classification errors.
+Different lesion categories can have visually similar characteristics, which may result in incorrect classification.
 
 ### Confidence Limitations
 
-A confidence score is a model probability, **not medical certainty**.
+A high confidence score does not guarantee that a prediction is correct or medically accurate.
 
 ### Clinical Validation
 
-This project is an educational/research prototype and is not presented as a clinically validated diagnostic system.
+DermaAI is an educational/research prototype and is not presented as a clinically validated diagnostic system.
 
 ---
 
@@ -616,7 +709,7 @@ Possible improvements include:
 - Improved class-imbalance handling
 - Probability calibration
 - Out-of-distribution detection
-- Explainable AI with Grad-CAM
+- Explainable AI using Grad-CAM
 - Additional Indian languages
 - Mobile application
 - Doctor-oriented dashboard
@@ -657,7 +750,7 @@ Multilingual Interaction
 Follow-up Questions
 ```
 
-The project therefore combines **specialized visual classification** with **generative educational assistance** rather than treating classification as the final user experience.
+The project combines **specialized visual classification** with **Generative AI-based educational assistance**, making the prediction more understandable to users.
 
 ---
 
@@ -668,7 +761,7 @@ DermaAI demonstrates an end-to-end AI healthcare workflow:
 ```text
 Healthcare Problem
        ↓
-Dataset
+HAM10000 Dataset
        ↓
 Data Analysis
        ↓
@@ -688,16 +781,18 @@ Model Evaluation
        ↓
 Model Prediction
        ↓
+FastAPI Backend
+       ↓
 Generative AI
        ↓
 Multilingual Assistance
        ↓
-Web Application
+React Web Application
        ↓
 Healthcare Awareness
 ```
 
-This directly aligns the project with the **AI For Healthcare** track.
+This aligns the project with the **AI For Healthcare** track.
 
 ---
 
@@ -705,19 +800,19 @@ This directly aligns the project with the **AI For Healthcare** track.
 
 ### 💻 GitHub Repository
 
-**Pavankm70/skin-disease**
+**na-srinivasa/DermaAI**
 
-https://github.com/Pavankm70/skin-disease
+https://github.com/na-srinivasa/DermaAI
 
 ### 🚀 Live Demo
 
 **DermaAI Live Demo**
 
-> Add the deployed Streamlit URL here before submitting the final Unstop form.
+> Add the actual deployed URL here before the final Unstop submission.
 
 ### 📓 Training Notebook
 
-`notebooks/skin_lesion_training.ipynb`
+`AI_Skin_Disease_Consultant.ipynb`
 
 ---
 
@@ -731,8 +826,9 @@ https://github.com/Pavankm70/skin-disease
 | Focus | Skin Lesion Classification + Generative AI |
 | Model | EfficientNetB3 |
 | Dataset | HAM10000 |
+| Backend | FastAPI |
+| Frontend | React + Vite |
 | Generative AI | Google Gemini |
-| Interface | Streamlit |
 
 ---
 
